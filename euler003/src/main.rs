@@ -7,9 +7,8 @@ const MAX_NUM: usize = 775147;
 const NUMERATOR: usize = 600851475143;
 
 fn main() {
-    let mut largest_factor = 0;
+    let mut largest_factor = 1;
 
-    // Fill it out like a sieve of eratosthenese
     for prime in Primes::all() {
         if prime > MAX_NUM {
             break;
