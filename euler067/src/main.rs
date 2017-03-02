@@ -1,3 +1,4 @@
+use std::cmp::max;
 use std::mem::swap;
 
 static TRIANGLE: &[&[i32]] = include!("p067_triangle.rs");
@@ -13,11 +14,7 @@ fn main() {
         next.extend_from_slice(TRIANGLE[row]);
 
         for (i, parent) in next.iter_mut().enumerate() {
-            if values[i] >= values[i + 1] {
-                *parent += values[i];
-            } else {
-                *parent += values[i + 1];
-            }
+            *parent += max(values[i], values[i + 1]);
         }
 
         swap(&mut values, &mut next);
