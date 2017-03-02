@@ -1,5 +1,4 @@
 extern crate primal;
-
 use primal::Sieve;
 
 fn main() {
