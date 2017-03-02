@@ -1,24 +1,21 @@
 use std::cmp::max;
-use std::mem::swap;
 
 static TRIANGLE: &[&[i32]] = include!("p067_triangle.rs");
 
 fn main() {
     let mut row = TRIANGLE.len() - 1;
     let mut values = TRIANGLE[row].to_vec();
-    let mut next = Vec::with_capacity(TRIANGLE[row].len() - 1);
 
     while row > 0 {
         row -= 1;
 
-        next.extend_from_slice(TRIANGLE[row]);
-
-        for (i, parent) in next.iter_mut().enumerate() {
-            *parent += max(values[i], values[i + 1]);
+        assert!(TRIANGLE[row].len() < values.len());
+        for i in 0..TRIANGLE[row].len() {
+            let bigger = max(values[i], values[i + 1]);
+            values[i] = TRIANGLE[row][i] + bigger;
         }
 
-        swap(&mut values, &mut next);
-        next.clear();
+        values.pop();
     }
 
     println!("{}", values[0]);
