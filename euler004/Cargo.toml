@@ -1,0 +1,7 @@
+[package]
+authors = ["Connor Hilarides <connorcpu@live.com>"]
+name = "euler004"
+version = "0.1.0"
+
+[dependencies]
+numtoa = "0.0.7"
