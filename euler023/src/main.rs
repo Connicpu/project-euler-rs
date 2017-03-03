@@ -19,6 +19,7 @@ fn factor_sum(f: Vec<(usize, usize)>, n: usize) -> usize {
     f.iter()
         .cloned()
         .flat_map(|t| factor_multiples(t.0, n))
+        .chain(Some(1))
         .collect::<HashSet<_>>() // simple O(n) unsorted dedup
         .iter()
         .cloned()
