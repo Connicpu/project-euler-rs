@@ -1,4 +1,4 @@
-#![feature(i128_type, inclusive_range_syntax)]
+#![feature(i128_type)]
 
 fn fac_ratio(n: i128, k: i128) -> i128 {
     (k + 1..n + 1).fold(1, |i, a| i * a)
